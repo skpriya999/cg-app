@@ -31,10 +31,9 @@ const login = asyncHandler(async (req, res) => {
 // @access  Public
 const create = asyncHandler(async (req, res) => {
   console.log("Req Body :--> " + req.body);
-  const { name, userName, password, email, contactNo, isAdmin, role } =
-    req.body;
+  const { userName, password } = req.body;
 
-  const userExists = await User.findOne({ email });
+  const userExists = await User.findOne({ userName });
 
   if (userExists) {
     res.status(400);
@@ -42,22 +41,15 @@ const create = asyncHandler(async (req, res) => {
   }
 
   const user = await User.create({
-    name,
     userName,
-    email,
     password,
-    role,
-    isAdmin,
-    contactNo,
   });
 
   if (user) {
     res.status(201).json({
       _id: user._id,
-      name: user.name,
-      email: user.email,
-      isAdmin: user.isAdmin,
-      // token: generateToken(user._id),
+      userName: user.name,
+      password: user.email,
     });
   } else {
     res.status(400);
@@ -65,4 +57,11 @@ const create = asyncHandler(async (req, res) => {
   }
 });
 
-export { login, create };
+// @desc    Auth user & get token
+// @route   POST /api/users/login
+// @access  Public
+const hello = asyncHandler(async (req, res) => {
+  res.json({ mesg: "Hello from Controller" });
+});
+
+export { login, create, hello };
