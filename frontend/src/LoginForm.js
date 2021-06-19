@@ -2,6 +2,8 @@ import React from "react";
 import { makeStyles } from "@material-ui/core/styles";
 import { Typography, Grid, Button, TextField } from "@material-ui/core";
 import validate from "validate.js";
+import { useDispatch, useSelector } from "react-redux";
+import { login } from "./actions/userAction";
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -26,7 +28,7 @@ const schema = {
 
 const LoginForm = ({ location, history }) => {
   const classes = useStyles();
-
+  const dispatch = useDispatch();
   const [formState, setFormState] = React.useState({
     isValid: false,
     values: {},
@@ -68,6 +70,7 @@ const LoginForm = ({ location, history }) => {
 
     if (formState.isValid) {
       console.log(formState.values);
+      dispatch(login(formState.values.userName, formState.values.password));
     }
 
     setFormState((formState) => ({

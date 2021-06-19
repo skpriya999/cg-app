@@ -19,7 +19,8 @@
     "nodemailer": "^6.6.0",
     "pdfkit": "^0.12.1",
     "prop-types": "^15.7.2",
-    "query-string": "^6.13.7"
+    "query-string": "^6.13.7",
+    "react-redux": "^7.2.4"
   },
   "devDependencies": {
     "concurrently": "^6.0.2",
