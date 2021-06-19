@@ -5,7 +5,7 @@ import {
   TODO_SUCCESS,
 } from "../constants/todoConstants";
 
-export const list = () => async (dispatch) => {
+export const listTodos = () => async (dispatch) => {
   console.log("EXCE LIST OF TODOS");
   try {
     dispatch({
@@ -27,8 +27,6 @@ export const list = () => async (dispatch) => {
       type: TODO_SUCCESS,
       payload: data,
     });
-
-    localStorage.setItem("userInfo", JSON.stringify(data));
   } catch (error) {
     dispatch({
       type: TODO_FAIL,

@@ -29,12 +29,23 @@ const schema = {
 const LoginForm = ({ location, history }) => {
   const classes = useStyles();
   const dispatch = useDispatch();
+
+  const userLogin = useSelector((state) => state.userLogin);
+  const { loading, error, userInfo } = userLogin;
+
   const [formState, setFormState] = React.useState({
     isValid: false,
     values: {},
     touched: {},
     errors: {},
   });
+
+  const redirect = location.search ? location.search.split("=")[1] : "/home";
+
+  React.useEffect(() => {
+    if (userInfo) history.push(redirect);
+    else history.push("/");
+  }, [history, userInfo, redirect]);
 
   React.useEffect(() => {
     const errors = validate(formState.values, schema);

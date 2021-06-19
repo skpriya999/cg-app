@@ -40,65 +40,6 @@ const schema = {
 
 const SignIn = ({ location, history }) => {
   const classes = useStyles();
-  const [formState, setFormState] = React.useState({
-    isValid: false,
-    values: {},
-    touched: {},
-    errors: {},
-  });
-
-  React.useEffect(() => {
-    const errors = validate(formState.values, schema);
-
-    setFormState((formState) => ({
-      ...formState,
-      isValid: errors ? false : true,
-      errors: errors || {},
-    }));
-  }, [formState.values]);
-
-  const handleChange = (event) => {
-    event.persist();
-
-    setFormState((formState) => ({
-      ...formState,
-      values: {
-        ...formState.values,
-        [event.target.name]:
-          event.target.type === "checkbox"
-            ? event.target.checked
-            : event.target.value,
-      },
-      touched: {
-        ...formState.touched,
-        [event.target.name]: true,
-      },
-    }));
-  };
-
-  const handleSubmit = (event) => {
-    event.preventDefault();
-
-    if (formState.isValid) {
-      console.log(formState.values);
-    }
-
-    setFormState((formState) => ({
-      ...formState,
-      touched: {
-        ...formState.touched,
-        ...formState.errors,
-      },
-    }));
-  };
-  const handleSignUp = (e) => {
-    console.log("Clicked Sign Up");
-    e.preventDefault();
-    history.push("/signup");
-  };
-
-  const hasError = (field) =>
-    formState.touched[field] && formState.errors[field] ? true : false;
 
   return (
     <div>
