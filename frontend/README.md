@@ -26,3 +26,17 @@ See the section about [running tests](https://facebook.github.io/create-react-ap
 
 ### `npm run build`
 
+Please find the below problem statement.
+Please do create small project whether it’s on local or on any other online tool likes  stackblitz etc I am fine.
+
+Create a react application within login authentication with JWT. 
+It will have login page which will accept userName and Password. 
+On the click of Submit button it will send credentials and do the authentication. 
+Post Authentication it will take user to dashboard page, where it will show list of tasks from below url. 
+You can show task as list or cards. 
+You can use material UI.
+
+http://jsonplaceholder.typicode.com/todos
+
+Adding testing framework will help you to create better understand of testing of components.
+
