@@ -16,10 +16,16 @@ const login = asyncHandler(async (req, res) => {
     (eu) => eu.userName === userName && eu.password === password
   );
 
-  console.log("Auth User : " + authUser);
-
   if (authUser) {
-    res.json(authUser);
+    let token = "";
+    token = generateToken(authUser._id);
+    console.log("Auth User : " + token);
+    res.json({
+      _id: authUser._id,
+      userName: authUser.userName,
+      password: authUser.password,
+      token: token,
+    });
   } else {
     res.status(401);
     throw new Error("Invalid Credentails");

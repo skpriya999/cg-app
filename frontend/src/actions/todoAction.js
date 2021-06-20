@@ -4,7 +4,7 @@ import {
   TODO_REQUEST,
   TODO_SUCCESS,
 } from "../constants/todoConstants";
-
+// "http://jsonplaceholder.typicode.com/todos",
 export const listTodos = () => async (dispatch) => {
   console.log("EXCE LIST OF TODOS");
   try {
@@ -18,10 +18,7 @@ export const listTodos = () => async (dispatch) => {
       },
     };
 
-    const { data } = await axios.get(
-      "http://jsonplaceholder.typicode.com/todos",
-      config
-    );
+    const { data } = await axios.get("/api/todo", config);
 
     dispatch({
       type: TODO_SUCCESS,

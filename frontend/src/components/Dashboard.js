@@ -66,7 +66,7 @@ const Dashboard = () => {
       </Grid>
     );
   } else {
-    renderTodos = "No Records Found for Best Seller category ";
+    renderTodos = "No Records Found ";
   }
 
   return <div>{renderTodos}</div>;
