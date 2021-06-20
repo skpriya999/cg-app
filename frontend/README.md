@@ -40,3 +40,12 @@ http://jsonplaceholder.typicode.com/todos
 
 Adding testing framework will help you to create better understand of testing of components.
 
+## ADD THE BELOW CONFIG IN .env file
+## START
+NODE_ENV = development
+MONGO_URI=mongodb+srv://slakkakula:Charan6571@cluster0.sm0nw.mongodb.net/cg-db?authSource=admin&replicaSet=atlas-a6y812-shard-0&readPreference=primary&appname=MongoDB%20Compass&ssl=true
+PORT = 5000
+JWT_SECRET = 'abc123'
+
+
+## END
